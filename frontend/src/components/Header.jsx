@@ -1,16 +1,14 @@
-// Header Component
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
-import { Search, Menu, X, Image, Sparkles, Grid } from "lucide-react";
+import { Menu, X, Image, Sparkles, Grid } from "lucide-react";
+import SearchImage from "./SearchImage"; // Import the new component
 
 const Header = ({ onSearch }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState("");
 
-  const handleSearch = (e) => {
-    e.preventDefault();
-    setIsMenuOpen(false)
+  const handleSearch = (searchQuery) => {
+    setIsMenuOpen(false);
     if (onSearch) {
       onSearch(searchQuery);
     }
@@ -34,24 +32,10 @@ const Header = ({ onSearch }) => {
         </div>
 
         {/* Search Bar */}
-        <form
-          onSubmit={handleSearch}
+        <SearchImage
+          onSearch={handleSearch}
           className="hidden md:flex flex-grow mx-8 max-w-xl"
-        >
-          <div className="relative w-full">
-            <input
-              type="text"
-              placeholder="Search images, AI generations..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full py-2 px-4 border border-neutral-light rounded-full focus:ring-2 focus:ring-primary-accent/50 focus:outline-none text-sm pl-10"
-            />
-            <Search
-              className="absolute left-3 top-1/2 transform -translate-y-1/2 text-neutral-dark opacity-50"
-              size={20}
-            />
-          </div>
-        </form>
+        />
 
         {/* Navigation Links */}
         <nav className="hidden md:flex items-center space-x-4">
@@ -91,22 +75,8 @@ const Header = ({ onSearch }) => {
           >
             <X size={24} />
           </button>
-          {/* Mobile Search */}
-          <form onSubmit={handleSearch} className="w-10/12 max-w-md">
-            <div className="relative">
-              <input
-                type="text"
-                placeholder="Search images, AI generations..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full py-3 px-4 border border-neutral-light rounded-full focus:ring-2 focus:ring-primary-accent/50 focus:outline-none text-sm pl-10"
-              />
-              <Search
-                className="absolute left-3 top-1/2 transform -translate-y-1/2 text-neutral-dark opacity-50"
-                size={20}
-              />
-            </div>
-          </form>
+
+   
 
           {/* Mobile Navigation Links */}
           <nav className="flex flex-col items-baseline space-y-4">

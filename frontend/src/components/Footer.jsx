@@ -15,7 +15,7 @@ const Footer = () => {
             <img src={logo} className="w-12 h-12" />
             <div>
               <h1 className="text-xl font-bold">ImPics</h1>
-              <p className="text-sm text-neutral-dark">
+              <p className="text-sm text-neutral-light/50">
                 Unleash your creativity with AI-powered image generation.
               </p>
             </div>

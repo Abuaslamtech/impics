@@ -1,15 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import {
-  Sparkles,
-  Image,
-  Palette,
-  Zap,
-  Rocket,
-  Star,
-  TrendingUp,
-  Grid,
-} from "lucide-react";
+import { Sparkles, Image } from "lucide-react";
 import Categories from "../components/Categories";
 import Features from "../components/Features";
 import Footer from "../components/Footer";
