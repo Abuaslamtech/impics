@@ -1,12 +1,13 @@
 const SkeletonCard = () => {
   return (
-    <div className=" bg-white rounded-xl flex flex-col justify-center items-center overflow-hidden shadow-elegant animate-pulse">
-      <div className="w-[80%] h-64 bg-neutral-light"></div>
-      <div className="p-4">
-        <div className="h-6 w-32 bg-neutral-light mb-2"></div>
-        <div className="h-6 w-20 bg-neutral-light"></div>
+    <div className="bg-white rounded-xl overflow-hidden shadow-elegant animate-pulse">
+      <div className="w-full h-64 bg-gray-300"></div>
+      <div className="p-4 flex items-center justify-between">
+        <div className="h-10 w-24 bg-gray-300 rounded-full"></div>
+        <div className="h-4 w-32 bg-gray-300 rounded"></div>
       </div>
     </div>
   );
 };
+
 export default SkeletonCard;

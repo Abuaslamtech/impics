@@ -1,7 +1,7 @@
 import React from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-const Pagination = ({ onNext, onPrev, currentPage }) => {
+const Pagination = ({ onNext, onPrev, currentPage, totalPages }) => {
   return (
     <div className="n flex items-center justify-center space-x-4 my-8">
       <button
@@ -45,13 +45,13 @@ const Pagination = ({ onNext, onPrev, currentPage }) => {
       </div>
 
       <button
-        disabled={currentPage === 100}
+        disabled={currentPage >= totalPages}
         className={`
-          flex items-center px-4 py-2 rounded-full
-          text-neutral-dark hover:text-primary-accent
-          disabled:text-neutral-light disabled:cursor-not-allowed
-          transition-colors
-        `}
+    flex items-center px-4 py-2 rounded-full
+    text-neutral-dark hover:text-primary-accent
+    disabled:text-neutral-light disabled:cursor-not-allowed
+    transition-colors
+  `}
         onClick={onNext}
       >
         Next

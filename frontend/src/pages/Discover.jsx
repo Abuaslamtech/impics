@@ -3,11 +3,11 @@ import Header from "../components/Header";
 import Pagination from "../components/Pagination";
 import Footer from "../components/Footer";
 import SearchImage from "../components/SearchImage";
-import useImageSearch from "../hooks/useImageExtraction";
+import useImageExtraction from "../hooks/useImageExtraction";
 
 function Discover() {
   const { images, isLoading, page, search, nextPage, prevPage } =
-    useImageSearch();
+    useImageExtraction();
 
   return (
     <div className="min-h-screen bg-primary-background">
@@ -22,7 +22,11 @@ function Discover() {
           onPrev={prevPage}
           currentPage={page}
         />
-        <Images images={images} />
+        {images.length === 0 && !isLoading ? (
+          <div className="text-center text-gray-500">No images found</div>
+        ) : (
+          <Images images={images} isLoading={isLoading} />
+        )}
         <Pagination
           onSearch={search}
           onNext={nextPage}
